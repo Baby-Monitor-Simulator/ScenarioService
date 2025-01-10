@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/scenario")
+@RequestMapping("/scenario")
 @CrossOrigin
 public class ScenarioController {
 
@@ -38,6 +38,9 @@ public class ScenarioController {
 
     @GetMapping("/all")
     public List<Scenario> getAllScenarios() {
-        return scenarioService.getAllScenarios();
+        System.out.println("Getting all scenarios");
+        List<Scenario> scenarioList = scenarioService.getAllScenarios();
+        System.out.println("Returning " + scenarioList.size() + " scenarios");
+        return scenarioList;
     }
 }
